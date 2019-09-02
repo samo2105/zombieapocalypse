@@ -1,0 +1,26 @@
+<p id="notice" ><%= notice %></p>
+<div class="container">
+<div class="card mb-3 text-center " style="max-width: 100%;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <%= image_tag @zombie.photo, class: "card-img"%>
+    </div>
+    <div class="col-md-8 bg-primary text-white">
+      <div class="card-body zombie-show">
+        <h2 class="card-title">Name = <%= @zombie.name %></h2>
+        <h2 class="card-title">Kills = <%= @zombie.kills %></h2>
+        <h2 class="card-title">Health = <%= @zombie.health %></h2>
+        <h2 class="card-title">Zombie Type = <%= @zombie.zombie_type %></h2>
+        <%= link_to 'Edit', edit_zombie_path(@zombie), class: 'btn-warning btn col-sm-6' %>
+
+       </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<%= link_to 'Back', zombies_path, class: 'card btn-warning btn'%>
+
+</div>

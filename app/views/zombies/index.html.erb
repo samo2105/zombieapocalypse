@@ -1,0 +1,42 @@
+<div class="jumbotron jumbotron-fluid text-white" id="jt-index">
+  <div class="container">
+    <h1 class="display-4">Bienvenido a Raccoon City</h1>
+    <p class="lead">Aquí puedes ver las variedades de zombies</p>
+  </div>
+</div>
+<div class="container">
+<p id="notice" ><%= notice %></p>
+<br>
+<%= link_to 'New Zombie', new_zombie_path, class: 'btn bg-warning card text-danger'%>
+<br>
+    <% @zombies.each_slice(3) do |three_zombies| %>
+
+    <div class="card-deck text-center">
+      <% three_zombies.each do |zombie|%>
+
+    <div class="card bg-primary text-white zombie-card">
+      <%= image_tag zombie.photo, class: 'card-img-top zombie-img img-thumbnail' %>
+      <div class="card-body">
+        <p class="card-text">Name = <%= zombie.name %></p>
+        <p class="card-text">Kills = <%= zombie.kills %></p>
+        <p class="card-text">Health = <%= zombie.health %></p>
+        <p class="card-text">Zombie Type = <%= zombie.zombie_type %></p>
+        <%= link_to 'Show', zombie, class: 'btn btn-light' %>
+        <%= link_to 'Edit', edit_zombie_path(zombie), class: 'btn btn-light' %>
+        <%= link_to 'Destroy', zombie, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+      <div class="card-footer"
+           <small class="text-muted">Modified <%= time_ago_in_words zombie.updated_at %> ago</small>
+    </div>
+
+        </div>
+
+
+    <% end %>
+      </div>
+
+    <br>
+      <%end %>
+
+
+</div>

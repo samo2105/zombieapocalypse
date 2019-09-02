@@ -1,0 +1,44 @@
+<div class="container card">
+<%= form_with(model: zombie, local: true) do |form| %>
+  <% if zombie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(zombie.errors.count, "error") %> prohibited this zombie from being saved:</h2>
+
+      <ul>
+      <% zombie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<br>
+  <div class="field">
+    <%= form.label :name, class: 'col-sm-1' %>
+    <%= form.text_field :name %>
+  </div>
+    <br>
+  <div class="field">
+    <%= form.label :zombie_type, class: 'col-sm-1' %>
+    <%= form.select :zombie_type, options_for_select(['Smoker', 'Hunter', 'Tank', 'Infected'], 'Zombie') %>
+  </div>
+    <br>
+  <div class="field">
+    <%= form.label :kills, class: 'col-sm-1' %>
+    <%= form.number_field :kills %>
+  </div>
+    <br>
+  <div class="field">
+    <%= form.label :photo, class: 'col-sm-1' %>
+    <%= form.text_field :photo %>
+  </div>
+    <br>
+  <div class="field">
+    <%= form.label :health, class: 'col-sm-1' %>
+    <%= form.number_field :health %>
+  </div>
+    <br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
